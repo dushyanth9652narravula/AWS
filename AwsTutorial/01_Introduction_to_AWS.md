@@ -2,7 +2,7 @@
 
 - AWS stands for Amazon Web Services which is a cloud provider. It actually provides us the severs and sevices that you can use on demand and scale easily.
 
-- AWS provides many sevices such as AWS Ec2, S3, EBS, RDS, DynamoDB, VPC, EFS and many more. Through these services it actually revolutionized the IT industry. It hosts biggest websites in the world such as Amazon.com and Netfilx.
+- AWS provides many sevices such as AWS Ec2, S3, EBS, RDS, DynamoDB, VPC, EFS and many more. Through these services it actually revolutionized the IT industry. It hosts biggest websites in the world such as Amazon and Netfilx.
 
 ## History of AWS
 
@@ -28,7 +28,7 @@
 
   **Pricing** : Pricing varies from region to region. So we have to choose a region where prices of the services are little bit low.
 
-- Each region is divided into one or more <b>Availability Zones (AZ)</b>. An <b>Availability Zone</b> one is one or more discrete data centers with redundant power, networking and connectivity. Each region has minimum 3 availability zones and maximum 6 availability zones. Each AZ are named with code such as ap-southeast-2a, ap-souteast-2b etc. These Availabilty zones are seperate from each other, so that they are isolted from disasters. They are connected with high bandwidth and ultra low latency.
+- Each region is divided into one or more <b>Availability Zones (AZ)</b>. An <b>Availability Zone</b> is one or more discrete data centers with redundant power, networking and connectivity. Each region has minimum 3 availability zones and maximum 6 availability zones. Each AZ are named with code such as ap-southeast-2a, ap-souteast-2b etc. These Availabilty zones are seperate from each other, so that they are isolted from disasters. They are connected with high bandwidth and ultra low latency.
 
 - Amazon has 400+ <b>points of presence</b> (400+ edge locations and 10+ regional caches) in 90+ cites across 40+ countries. An <b>Edge location</b> is a smaller, specialized AWS data center used to deliver content and services to your users with the lowest possible latency. While Region is where we run our main infrastructure (such as databases and servers), an Edge location is the local point of presence that brings specific services closer to where you live. It is mainly used for caching and routing the content.
 
