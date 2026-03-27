@@ -5,3 +5,4 @@ format: jb-book
 root: 01_Introduction_to_AWS
 chapters:
   - file: 02_IAM
+  - file: 03_EC2

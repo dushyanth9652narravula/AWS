@@ -51,7 +51,7 @@
   Sample Policy structure is shown in the following image.
 
   <p align="center">
-  <img src="../_static/Policy_structure.png" alt="Policy Structure" width="1000"/>
+  <img src="./_static/Policy_structure.png" alt="Policy Structure" width="1000"/>
   <br>
   <em>Policy Structure</em>
   </p>  
