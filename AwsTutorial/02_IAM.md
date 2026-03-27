@@ -1,4 +1,4 @@
-# Identity Access Management
+# Identity And Access Management
 
 ## Introduction to IAM 
 
