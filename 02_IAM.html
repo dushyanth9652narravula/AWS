@@ -1,0 +1,651 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Identity And Access Management &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '02_IAM';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Elastic Compute Cloud (EC2)" href="03_EC2.html" />
+    <link rel="prev" title="Introduction to AWS" href="01_Introduction_to_AWS.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="01_Introduction_to_AWS.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="01_Introduction_to_AWS.html">
+                    Introduction to AWS
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Identity And Access Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_EC2.html">Elastic Compute Cloud (EC2)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F02_IAM.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/02_IAM.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Identity And Access Management</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-iam">Introduction to IAM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iam-policies">IAM Policies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iam-mfa">IAM MFA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-aws-services">Accessing AWS Services</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iam-roles">IAM Roles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iam-security-tools">IAM Security Tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iam-best-practices">IAM Best Practices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-iam">Summary of IAM</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="identity-and-access-management">
+<h1>Identity And Access Management<a class="headerlink" href="#identity-and-access-management" title="Link to this heading">#</a></h1>
+<section id="introduction-to-iam">
+<h2>Introduction to IAM<a class="headerlink" href="#introduction-to-iam" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>IAM stands for Identity Access Management which is a global service in AWS which means it is available in every region.</p></li>
+<li><p>Generally we use IAM, when we have actually created our account in AWS. I mean when you create an aws account, you actually create a root account which we doesn’t use basically. Because root account has all the privilages (permissions) for using all the services in the aws. So to limit the access to enitre AWS, we actually create Users.</p></li>
+<li><p>IAM Users are actually people within our organization and we can group them. Suppose consider we have a company which is building a product and we are using aws services to serve these product to end users. So to build this product we need developers team, operations team, audit team, testing team and so on.</p></li>
+<li><p>Since we are serving application via AWS, so we need to have an account in AWS. So we have give access of that account to everyone in your oranization. So this organization initially create an businees account in AWS which is called Root Account which has access to all the services in AWS.</p></li>
+<li><p>But organization cannot able to give access of this root account to everyone in the organization as if anyone might use an unneccessary service which is not used in the development of the product might cost a lot for organizations. So they thought, they will create an <b>IAM User</b> account for each person in the organization and give that credentials to each person in the organization.</p></li>
+<li><p>Later they group those users into multiple groups by using <b>IAM Groups</b> such as developers group, operations group, audit group etc as users in each group do similar tasks. Till now these users doesn’t have any permissions to access the aws account. They can just login into that aws account and cannot do anything.</p></li>
+<li><p>Now, organization starts giving permissions to Users or Groups for accessing services in AWS account. So Organization assigns a JSON documents to Users or Groups which are called as <b>Policies</b>.</p></li>
+<li><p>These policies define the permissions of the Users or Groups. Usually organizations apply least privilage principle which means they don’t give more permissions than an User or Group needs.</p></li>
+<li><p>So IAM Users are considered as people in a oganization and Group is Users considered same class such as developers team, operations team, Audit team etc. Groups can contain only Users not other groups. Users do or don’t have to belong a group and a single user can belong to multiple groups. IAM policies are defined to give permissions to users.</p></li>
+<li><p><strong>Note</strong> : Generally we cannot login multiple Aws Accounts in same browser in previous days. But now, AWS given a new few feature called multi-session support through which we can login multiple aws accounts on same browser. To enable this feature, just click on account id in aws console, there you can see an option called <code class="docutils literal notranslate"><span class="pre">Turn</span> <span class="pre">on</span> <span class="pre">multi-session</span> <span class="pre">support</span></code>, then you can see an <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">session</span></code> option when you click on account id. Now click on <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">Session</span></code> button, then you can get a new login page where you can login into new account.</p></li>
+</ul>
+</section>
+<section id="iam-policies">
+<h2>IAM Policies<a class="headerlink" href="#iam-policies" title="Link to this heading">#</a></h2>
+<ul>
+<li><p>As we know IAM policies are defined to give permissions to the users. We can give permissions to users in two ways. Users would inherit permissions from the groups itself. This means what ever permissions that are attached to the groups, those gets inherited to the users also.</p></li>
+<li><p>We can directly attach a policy to an user which is called inline policy. We have two ways to create an inline policy. Those are Visual Method and JSON Method. Before going to understand these methods lets first see whats the structure of a policy in AWS.</p></li>
+<li><p>Policy Structure consists of the following things.</p>
+<p><strong>Version</strong> : This is the policy language version, always include “2012-10-17”</p>
+<p><strong>Id</strong> : It is an identifier for the policy which is optional.</p>
+<p><strong>Statement</strong> : One or more individual statements (required). A statement actually consists the following things.</p>
+<ol class="arabic simple">
+<li><p><strong>Sid</strong> : It is an identifier for the statement (optional)</p></li>
+<li><p><strong>Effect</strong> : Whether statement allows or denies the access (only two options Allow or Deny)</p></li>
+<li><p><strong>Principal</strong> : It is account/user/role to which this policy is applied to.</p></li>
+<li><p><strong>Action</strong> : List of actions this policy allow or denies. If it says <code class="docutils literal notranslate"><span class="pre">*</span></code> mark then it means everything.</p></li>
+<li><p><strong>Resources</strong> : List of resources to which policy is applies to.</p></li>
+<li><p><strong>Conditions</strong> : Conditions for when this policy is in effect. (optional)</p></li>
+</ol>
+<p>Sample Policy structure is shown in the following image.</p>
+<p align="center">
+<img src="./_static/Policy_structure.png" alt="Policy Structure" width="1000"/>
+<br>
+<em>Policy Structure</em>
+</p>  
+</li>
+<li><p>For creating the policies like above we have visual and json methods. In visual method which is an graphical interface method, where we just have to select the Effect, Actions and Resources from the dropdown list. Once you selected these options then policy gets automatically created. Whereas in JSON method, we have to edit these Effect, Actions, Resources in JSON object by selecting the options from search bar beside each key.</p></li>
+</ul>
+</section>
+<section id="iam-mfa">
+<h2>IAM MFA<a class="headerlink" href="#iam-mfa" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Till now, we have seen how to create Users, Groups, and define Policies to Users and Groups. Now lets see how to protect the accounts of the root and IAM Users.</p></li>
+<li><p>We have two mechanisms to protect the root and IAM User accounts. Those are Password Policy and MFA.</p></li>
+<li><p><strong>Password Policy</strong> : Creating Stronger passwords provides high security for the account. In AWS, we can setup our own password policy. We can set minimum password length. We can set required specific charecter types such as including uppercase letters, lowercase letters, numbers, non-alphanumeric charecters. And we can also setup some mor options such as Allow all IAM Users ti change their own passwords, set passowrd expiration sate which means users need to change their password after sometime and prevent password reuse. To do this go to IAM service and click on Account Settings on the Left side list of options. Then Click on Edit button in Password Policy section then select custom password policy and then setup your own password policy.</p></li>
+<li><p><strong>MFA</strong> : MFA stands for Multi-Factor Authentication which is an anothor option to protect our Root and IAM User account. MFA is nothing but password + security device we own. If enable multifactor authentication then we need to enter our password and the key that is generated by security device that we actually own. So even password gets hacked, we couldn’t lose our account as they doesn’t know the key generated by security device. So password + Security Key results successful login. MFA devices supported by AWS are <b>Virtual MFA Device</b> (Google Authenticator, Authy which are apps used in phone) which supports multiple tokens on single device, <b>Universal 2nd Factor (U2F) Security Key</b> (Yubikey by Yubico (3rd party)) which supports for multiple root and IAM users using a single hardware security key. It is actually a chip. We have to insert this chip to our device where we are logging the AWS account. We have two more MFA devices but those are also hardwore devices but generate Keys such as <b>Hardware Key Fob MFA Device</b> provided by Gemalto, <b>Hardware Key Fob MFA Device For AWS GovCloud</b> provided by SurePassID.</p></li>
+</ul>
+</section>
+<section id="accessing-aws-services">
+<h2>Accessing AWS Services<a class="headerlink" href="#accessing-aws-services" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>There are actually three ways we can access the AWS services. Those are AWS Management Console (which is protected by the password + MFA), AWS Command Line Interface (CLI) (which is protected by access keys), AWS Software Development Kit (SDK) (which is protected by Access keys).</p></li>
+<li><p>Till now, we have seen accessing AWS Services using AWS Management Console. But we have other two ways which are listed above. But to access the services using CLI and SDK, we need access keys. Access keys are actually generated by using AWS Console. Users manage their own access keys. An Access key has two things those are Acess Key ID, Secret Access Key. Access Key ID is like Username and Secret Access Key is like password.</p></li>
+<li><p>AWS CLI is a tool that enables you to access the AWS services using commnads in your command line shell. Using CLI, you have direct access to public APIs of AWS Services. You can develop scripts to manage your resources. CLI is open source and can be used as alternative to the AWS Management Console.</p></li>
+<li><p>AWS SDK is a Software Development Kit which has language specific APIs (means Language specific set of libraries) that enables you to access and manage the AWS Services programatically. AWS SDK is embedded within our application. AWS SDK supports many languages such as JavaScript, Python, PHP, .NET, etc , it has Mobile SDKs such as Android, IOS etc and it has IOT Device SDKs such as Embedded C, Arduino etc.</p></li>
+<li><p>Now lets access the aws services using AWS CLI. To do this first we need to download the AWS CLI installer from the internet and then run that installer on our computer. After this check whether aws cli is properly executed or not by using <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--version</span></code> command. Once we installed the CLI successfully now we need to get the credentials to configure the cli with our account. These credentials are called Access Keys.</p></li>
+<li><p>To create access keys, first login in to the aws management console and open IAM service. Then click on that username under users section then you can see 5 sections such as permissions, groups, tags, security credentials, last accessed etc. Now click on the security credentials and then click on create access key button. Now select command line interface and then click next. Now it shows to enter a tag for that access key but it is optional. So click create access key, then the access key gets created. Now download the .csv file which contains access keys id and secret access key.</p></li>
+<li><p>Now open the terminal or command prompt and run <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">configure</span></code> command. Now it asks for Access Key ID, Secret Access Key ID, Region and output. So enter the respective field answers and leave empty for output format field. Now you can access the services that can be accessed by an IAM User using management console. If that user IAM full access then run this command <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">iam</span> <span class="pre">list-users</span></code> which gives all the users present in the root account. This is how we access the services of AWS using AWS CLI.</p></li>
+<li><p>AWS provides an alternative for AWS CLI which is called CloudShell. It is actually a cloud terminal environment similar to CLI. If you doesn’t want to setup and configure the AWS CLI in your own computer, then we can use these CloudShell service. This CloudShell is located in top right corner of AWS Management Console.</p></li>
+</ul>
+</section>
+<section id="iam-roles">
+<h2>IAM Roles<a class="headerlink" href="#iam-roles" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>In Real world situations, some AWS services will need to perform some actions on your behalf. For example if you training a model in AWS and data is stored in S3, then Ec2 has to fetch the data from S3 and use that data to train the model. To do this Ec2 must has an access on S3 to fetch the data from it.</p></li>
+<li><p>For this we have to create a role for an ec2 by attaching full access of s3 policy to it. Once we created that role then we can attach this role to that particular Ec2 instance where we are training our model.</p></li>
+<li><p>To create a role, first open the IAM service and then click on the roles button in the left side of IAM service interface. Then click on the create role button. After that we have to choose the service for which we want to create a role and then we have to attach a policy to that role and then name the role and then click on the create role button. Once you created the role, now we have to attach that role to the service that you want to perform on behalf of you.</p></li>
+<li><p>Common Roles are Ec2 Instance Roles, Lambda Function Roles, Roles for Cloud Formation.</p></li>
+</ul>
+</section>
+<section id="iam-security-tools">
+<h2>IAM Security Tools<a class="headerlink" href="#iam-security-tools" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Securing the root and user account is crucial for an organization. So we have to monitor all user accounts and root account continuosly so that no account gets hacked.</p></li>
+<li><p>So track all users accounts such as when they have last accessed, when they have changed the password and what services that user is accessing and what polices are allowing to access particular services, IAM provides two useful security tools. Those are Credentials Report and Access Advisor.</p></li>
+<li><p><strong>Credentials Report</strong> : Credentials Report provides an excel sheet which contains all the user information in that organization such as name of all users, when they have last accessed the account, when they have last changed the password and how frequently they are accessing the account, and in which medium they are accessing the account such as Management Console or CLI etc. By using this report we can monitor all users accounts. To generate this report, open the IAM service and then click on credentials report on left hand side under Access Reports section.</p></li>
+<li><p><strong>Access Analyzer</strong> : Access Analyzer provides the list of services that can access a particular user and also gives the information about when a particular sevice has been accessed by that user and also gives the list of services that hasn’t been accessed by that user yet. We can also know which policy is granting permissions to the user for accessing that services. Through this we can acess that  for which services that we need to give permissions for this user and for which services we need to remove permissions etc. By using the Access Analyzer we can follow that least privilage principle.</p></li>
+</ul>
+</section>
+<section id="iam-best-practices">
+<h2>IAM Best Practices<a class="headerlink" href="#iam-best-practices" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Use Root account only when AWS Account Setup and later user only IAM User.</p></li>
+<li><p>One physical user is equivalent to one IAM User only. If you want to provide access of AWS account to your friend then don’t share your credentials instead just create anothor user in the name of your friend and share those credentials only.</p></li>
+<li><p>Create groups and add users to these groups and attach policies to groups itself instead of attaching the inline policies.</p></li>
+<li><p>Create and use IAM Roles if you want to do a particular task by other AWS Services on behalf of yours.</p></li>
+<li><p>Use Access Keys if you want to access AWS Services programatically (CLI or SDK).</p></li>
+<li><p>Audit the AWS Accounts by using Credentials Report and AWS Access Analyzer.</p></li>
+</ul>
+</section>
+<section id="summary-of-iam">
+<h2>Summary of IAM<a class="headerlink" href="#summary-of-iam" title="Link to this heading">#</a></h2>
+<ul>
+<li><p>IAM stands for Identity And Access Management is a free global service that securely manages the access of AWS Services by controlling who is authenticated and authorized. (Or) we can say AWS Identitiy And Access Management provides the infrastructure necessary to control the authentication and authorization of your AWS Accounts. It allows administrators to create users, groups, roles and applying policies to enforce the priciple of least privilage.</p></li>
+<li><p>We have actually 3 AWS Identities. Those are IAM Users, IAM User Groups, IAM Roles. <b>IAM Users </b> are actually people in the organization. Organizations usually creates seperate IAM User Account for each employee working under them. So we can say  each IAM User are one physical user or employee in the organization.</p></li>
+<li><p><b>IAM User Groups</b> are similar to groups in an organization which consists of multiple users and they actually perform particular tasks only. So we can group multiple IAM Users into groups by using IAM User Groups.</p></li>
+<li><p><b>IAM Roles</b> gives a set of permissions to the AWS services to perform particular actions on behalf of that IAM User or ourselves. Generally in many applications we have to provide some permissions to AWS services to perform actions on behalf of ourselves. To do this we use IAM Roles.</p></li>
+<li><p><b>IAM Policies</b> are actually JSON documents that define the permissions to the AWS Identities such as IAM Users, User Groups, Roles. We have predefined policies in AWS or we create our own policy also. To create our own policies we should know the policy structure. IAM Policies actually includes the following things.</p>
+<p><strong>Version</strong> : It states the version of the policy. Generally the policy version is “2012-10-17”.</p>
+<p><strong>Id</strong> : It is policy Id which is used to identify the policy.</p>
+<p><strong>Statement</strong> : Statement is actually one that define the permissions in that policy. We can have one or multiple statements in a policy. A statement includes the following things.</p>
+<ol class="arabic simple">
+<li><p><strong>Sid</strong> : Sid is statement id which is used to identify the statement.</p></li>
+<li><p><strong>Effect</strong> : It actually tells whether policy allows or denies the below actions.</p></li>
+<li><p><strong>Principle</strong> : It is account/user/role to which policy is applied to.</p></li>
+<li><p><strong>Action</strong> : It is list of actions that policy allows or denies.</p></li>
+<li><p><strong>Resources</strong> : It is the list of resources to which the policy is applied to.</p></li>
+<li><p><strong>Conditions</strong> : Conditions when the policy is on Effect.</p></li>
+</ol>
+</li>
+<li><p>There are actually two ways to secure the AWS Accounts in an organization. First one is enforcing a strong password using Password Policy. Second one is using MFA as additional protection.</p></li>
+<li><p>AWS allows us to edit the default password policy to enforce strong password. We can include the follwing things in the password policy. Those are Setting the length of the password, including uppercase, lowercase letters, numbers, special charecters, etc. We can also set password expiration and prevent password reuse or we can enforce users to change the password for each login etc. These are things that we can include in the password policy to enforce stong password for enhancing the security of our AWS Account.</p></li>
+<li><p>Along with password policy, AWS provides anothor mechanism which is Multifactor authentication. MFA is simply Password + MFA Device or token generated from MFA device. So login into AWS account we need both password and MFA device. Even our password gets hacked, they need our MFA device to access our AWS account. So MFA actually provides more security to our AWS account. We have both physical and Virtual MFA devices.</p></li>
+<li><p>For Monitoring the AWS accounts, we have two services that is provided by IAM. Those are IAM Credentails Report and IAM Access Advisor.<b>IAM Credentials Report</b> provides generates an excel sheet by providing the account level information which includes list of AWS Users Accounts in the organization and the status of each user such as when they have last accessed, access keys of each user etc.</p></li>
+<li><p><b>IAM Access Advisor</b> provides an User Level Information which provides the service permissions granted to each user and when they have last accessed. You can use this information to revise the policies of that user to enforce the principle of least privilage.</p></li>
+<li><p>There are actually three ways to access the AWS services. Those are AWS Management Console, AWS CLI and AWS SDK. AWS Mangement Console is an Web service which provides graphical user interface to access the AWS Services and this console is protected by Username and Password.</p></li>
+<li><p><b>AWS CLI</b> is a command line interface which uses commands to access the AWS Services. It directly uses the public APIs of the AWS Services via commands. <b>AWS SDK</b> is a Software Development Kit which is a set of libraries that are used to access the AWS Services programatically. These two are protected by the Access Keys.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01_Introduction_to_AWS.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction to AWS</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03_EC2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Elastic Compute Cloud (EC2)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-iam">Introduction to IAM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iam-policies">IAM Policies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iam-mfa">IAM MFA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-aws-services">Accessing AWS Services</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iam-roles">IAM Roles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iam-security-tools">IAM Security Tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iam-best-practices">IAM Best Practices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-iam">Summary of IAM</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
